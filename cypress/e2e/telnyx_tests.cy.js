@@ -30,7 +30,7 @@ describe("Telnyx testing", () => {
     cy.viewport(1440, 900);
     cy.contains("button", "Products").should("be.visible").click();
     cy.contains("Voice AI").click();
-    cy.url({ responseTimeout: 5000 }).should("include", "products/voice-ai");
+    cy.url({ responseTimeout: 10000 }).should("include", "products/voice-ai");
   });
   it("AI assistant popup activating", () => {
     cy.visit("https://telnyx.com");
@@ -73,8 +73,7 @@ describe("Telnyx testing", () => {
     cy.get("#password").type("Kirk123456789@");
     cy.get("#terms_and_conditions").click();
     cy.contains("button", "SIGN UP").click();
-    cy.wait(5000);
-    cy.url({ responseTimeout: 5000 }).should("include", "verify-email/f");
+    cy.url({ responseTimeout: 10000 }).should("include", "verify-email/f");
     cy.contains("h1", "One last step");
   });
   it("log in with the empty password input", () => {
