@@ -70,7 +70,7 @@ describe("Telnyx testing", () => {
     cy.get("#email").type("supermail@gmail.com");
     cy.get("#first_name").type("Kirk");
     cy.get("#last_name").type("Hammett");
-    cy.get("#password").type("Kirk123456789@");
+    cy.get("#password").type("Kirk12345@");
     cy.get("#terms_and_conditions").click();
     cy.contains("button", "SIGN UP").click();
     cy.url({ responseTimeout: 10000 }).should("include", "verify-email/f");
