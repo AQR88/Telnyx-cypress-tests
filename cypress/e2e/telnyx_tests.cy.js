@@ -67,7 +67,7 @@ describe("Telnyx testing", () => {
   });
   it("Registration with valid data", () => {
     cy.visit("https://telnyx.com/sign-up");
-    cy.get("#email").type("supermegamail@mail.com");
+    cy.get("#email").type("supermegamail@gmail.com");
     cy.get("#first_name").type("Lars");
     cy.get("#last_name").type("Ulrich");
     cy.get("#password").type("Lars@123456789");
