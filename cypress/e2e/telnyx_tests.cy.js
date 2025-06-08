@@ -65,30 +65,15 @@ describe("Telnyx testing", () => {
     cy.wait(7000);
     cy.get(".c-gsqZcf video").should("be.visible");
   });
-  // it("Registration with valid data", () => {
-  //   cy.visit("https://telnyx.com/sign-up");
-  //   cy.get("#email").type("email@gmail.com");
-  //   cy.get("#first_name").type("Kirk");
-  //   cy.get("#last_name").type("Hammett");
-  //   cy.get("#password").type("Kirk123456789@");
-  //   cy.get("#terms_and_conditions").click();
-  //   cy.contains("button", "SIGN UP").click();
-  //   cy.url({ responseTimeout: 10000 }).should("include", "verify-email/f");
-  //   cy.contains("h1", "One last step");
-  // });
-  it("Registration with valid unique data", () => {
-    const id = Cypress._.random(0, 1e6);
-    const email = `testuser${id}@gmail.com`;
-
+  it("Registration with valid data", () => {
     cy.visit("https://telnyx.com/sign-up");
-    cy.get("#email").type(email);
+    cy.get("#email").type("email@gmail.com");
     cy.get("#first_name").type("Kirk");
     cy.get("#last_name").type("Hammett");
     cy.get("#password").type("Kirk123456789@");
     cy.get("#terms_and_conditions").click();
     cy.contains("button", "SIGN UP").click();
-
-    cy.url({ timeout: 10000 }).should("include", "verify-email");
+    cy.url({ responseTimeout: 10000 }).should("include", "verify-email/f");
     cy.contains("h1", "One last step");
   });
 
