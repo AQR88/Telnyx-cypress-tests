@@ -67,12 +67,13 @@ describe("Telnyx testing", () => {
   });
   it("Registration with valid data", () => {
     cy.visit("https://telnyx.com/sign-up");
-    cy.get("#email").type("megaemail@gmail.com");
-    cy.get("#first_name").type("Kirk");
-    cy.get("#last_name").type("Hammett");
-    cy.get("#password").type("Hammett123456789@");
+    cy.get("#email").type("supermegamail@mail.com");
+    cy.get("#first_name").type("Lars");
+    cy.get("#last_name").type("Ulrich");
+    cy.get("#password").type("Lars@123456789");
     cy.get("#terms_and_conditions").click();
     cy.contains("button", "SIGN UP").click();
+
     cy.url({ responseTimeout: 10000 }).should("include", "verify-email/f");
     cy.contains("h1", "One last step");
   });
